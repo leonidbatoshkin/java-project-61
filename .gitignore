@@ -12,3 +12,4 @@ bin
 .classpath
 app/.idea/
 *.iml
+config/
