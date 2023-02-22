@@ -6,6 +6,7 @@ import static hexlet.code.Cli.greeting;
 import static hexlet.code.games.Calc.playGameCalc;
 import static hexlet.code.games.Even.playGameEven;
 import static hexlet.code.games.GCD.playGameGCD;
+import static hexlet.code.games.Progression.playGameProgression;
 
 public class App {
     public static Scanner scanner;
@@ -17,6 +18,7 @@ public class App {
                 2 - Even
                 3 - Calc
                 4 - GCD
+                5 - Progression
                 0 - Exit
                 Your choice:\s""");
         scanner = new Scanner(System.in);
@@ -35,6 +37,9 @@ public class App {
                 break;
             case "4":
                 playGameGCD();
+                break;
+            case "5":
+                playGameProgression();
                 break;
             default:
                 System.out.println("\nThere are no game with that number.");

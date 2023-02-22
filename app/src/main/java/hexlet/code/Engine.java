@@ -17,7 +17,7 @@ public class Engine {
     private static int successCounter = 0;
 
 
-    public static int generateQuestion() {
+    public static int generateNumber() {
         return new Random().nextInt(UPPER_BORDER - BOTTOM_BORDER) + BOTTOM_BORDER;
     }
 

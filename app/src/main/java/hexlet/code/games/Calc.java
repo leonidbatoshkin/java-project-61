@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import static hexlet.code.Cli.greeting;
-import static hexlet.code.Engine.generateQuestion;
+import static hexlet.code.Engine.generateNumber;
 import static hexlet.code.Engine.generateOperation;
 import static hexlet.code.Engine.doGameLogic;
 import static hexlet.code.Engine.ROUNDS_NUMBER;
@@ -14,8 +14,8 @@ public class Calc {
         greeting();
         System.out.println("What is the result of the expression?");
         while (roundCounter < ROUNDS_NUMBER) {
-            var firstElement = generateQuestion();
-            var secondElement = generateQuestion();
+            var firstElement = generateNumber();
+            var secondElement = generateNumber();
             var operation = generateOperation();
             if (operation == '+') {
                 answers[roundCounter] = String.valueOf(firstElement + secondElement);
