@@ -8,7 +8,10 @@ import static hexlet.code.Cli.userName;
 public class Engine {
     public static final int ROUNDS_NUMBER = 3;
     public static int roundCounter = 0;
-    private static final int BOTTOM_BORDER = 0; // Minimum value of range
+
+    public static String[] questions = new String[3];
+    public static String[] answers = new String[3];
+    private static final int BOTTOM_BORDER = 1; // Minimum value of range
     private static final int UPPER_BORDER = 20; // Maximum value of range
 
     private static int successCounter = 0;
@@ -24,16 +27,16 @@ public class Engine {
         return operationList[index];
     }
 
-    public static void doGameLogic(String[] questions, String[] rightAnswers) {
+    public static void doGameLogic() {
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
             System.out.print("Question: " + questions[successCounter] + "\nYour answer: ");
             String userAnswer = scanner.next();
-            if (userAnswer.equals(rightAnswers[i])) {
+            if (userAnswer.equals(answers[i])) {
                 successCounter++;
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + rightAnswers[i] + "'.\nLet's try again, " + userName + "!");
+                        + answers[i] + "'.\nLet's try again, " + userName + "!");
                 System.exit(0);
             }
         }
