@@ -6,7 +6,6 @@ app/build/
 
 **/logs/
 
-app/settings*
 bin
 .project*
 .classpath
