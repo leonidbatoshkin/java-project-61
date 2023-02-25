@@ -39,14 +39,11 @@ public class Progression {
         var secondElement = 0;
         for (int i = 0; i < PROGRESSION_LENGTH; i++) {
             secondElement = firstElement + progressionStep;
-            if (i == missingElementPosition && i == 0) {
-                progression += "..";
-                missingElement = secondElement;
-            } else if (i == missingElementPosition) {
-                progression += " ..";
+            if (i == missingElementPosition) {
+                progression += ".. ";
                 missingElement = secondElement;
             } else {
-                progression += " " + secondElement;
+                progression += i != PROGRESSION_LENGTH - 1 ? secondElement + " " : secondElement;
             }
             firstElement = secondElement;
         }
