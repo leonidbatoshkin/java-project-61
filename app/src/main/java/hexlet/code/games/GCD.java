@@ -3,21 +3,22 @@ package hexlet.code.games;
 import static hexlet.code.Cli.greeting;
 import static hexlet.code.Engine.generateNumber;
 import static hexlet.code.Engine.doGameLogic;
+import static hexlet.code.Engine.getRoundCounter;
+import static hexlet.code.Engine.setRoundCounter;
+import static hexlet.code.Engine.setQuestions;
+import static hexlet.code.Engine.setAnswers;
 import static hexlet.code.Engine.ROUNDS_NUMBER;
-import static hexlet.code.Engine.roundCounter;
-import static hexlet.code.Engine.answers;
-import static hexlet.code.Engine.questions;
 
 public class GCD {
     public static void playGameGCD() {
         greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
-        while (roundCounter < ROUNDS_NUMBER) {
+        while (getRoundCounter() < ROUNDS_NUMBER) {
             var firstElement = generateNumber();
             var secondElement = generateNumber();
-            answers[roundCounter] = String.valueOf(getGCDNumber(firstElement, secondElement));
-            questions[roundCounter] = firstElement + " " + secondElement;
-            roundCounter++;
+            setAnswers(String.valueOf(getGCDNumber(firstElement, secondElement)));
+            setQuestions(firstElement + " " + secondElement);
+            setRoundCounter();
         }
         doGameLogic();
     }

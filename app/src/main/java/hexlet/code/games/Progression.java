@@ -5,10 +5,11 @@ import java.util.Random;
 import static hexlet.code.Cli.greeting;
 import static hexlet.code.Engine.generateNumber;
 import static hexlet.code.Engine.doGameLogic;
+import static hexlet.code.Engine.getRoundCounter;
+import static hexlet.code.Engine.setRoundCounter;
+import static hexlet.code.Engine.setQuestions;
+import static hexlet.code.Engine.setAnswers;
 import static hexlet.code.Engine.ROUNDS_NUMBER;
-import static hexlet.code.Engine.roundCounter;
-import static hexlet.code.Engine.answers;
-import static hexlet.code.Engine.questions;
 
 public class Progression {
     private static final int MISSING_ELEMENT_BOTTOM_POSITION = 0;
@@ -22,11 +23,11 @@ public class Progression {
     public static void playGameProgression() {
         greeting();
         System.out.println("What number is missing in the progression?");
-        while (roundCounter < ROUNDS_NUMBER) {
+        while (getRoundCounter() < ROUNDS_NUMBER) {
             var step = generateNumber();
-            questions[roundCounter] = getProgression(step);
-            answers[roundCounter] = String.valueOf(missingElement);
-            roundCounter++;
+            setQuestions(String.valueOf(getProgression(step)));
+            setAnswers(String.valueOf(String.valueOf(missingElement)));
+            setRoundCounter();
         }
         doGameLogic();
     }

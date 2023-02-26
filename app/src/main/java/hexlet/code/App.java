@@ -10,7 +10,11 @@ import static hexlet.code.games.Progression.playGameProgression;
 import static hexlet.code.games.Prime.playGamePrime;
 
 public class App {
-    public static Scanner scanner;
+    private static Scanner scanner;
+
+    public static Scanner getScanner() {
+        return scanner;
+    }
 
     public static void main(String[] args) {
         System.out.print("""
