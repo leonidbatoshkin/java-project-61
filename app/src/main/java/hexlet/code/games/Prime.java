@@ -10,6 +10,10 @@ import static hexlet.code.Engine.setAnswers;
 import static hexlet.code.Engine.ROUNDS_NUMBER;
 
 public class Prime {
+
+    private static final int DIVIDER_TWO = 2;
+    private static final int DIVIDER_THREE = 3;
+
     public static void playGamePrime() {
         greeting();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
@@ -23,10 +27,8 @@ public class Prime {
     }
 
     private static boolean isPrime(int number) {
-        var dividerTwo = 2;
-        var dividerThree = 3;
         for (int i = 2; Math.pow(i, 2) <= number; i++) {
-            if ((number != dividerTwo && number != dividerThree) && (number % i == 0)) {
+            if ((number != DIVIDER_TWO && number != DIVIDER_THREE) && (number % i == 0)) {
                 return false;
             }
         }
