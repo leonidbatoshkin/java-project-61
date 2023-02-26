@@ -19,7 +19,7 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         while (getRoundCounter() < ROUNDS_NUMBER) {
             var number = generateNumber();
-            setAnswers(String.valueOf(isPrime(number) ? "yes" : "no"));
+            setAnswers(isPrime(number) ? "yes" : "no");
             setQuestions(String.valueOf(number));
             setRoundCounter();
         }

@@ -26,7 +26,7 @@ public class Progression {
         while (getRoundCounter() < ROUNDS_NUMBER) {
             var step = generateNumber();
             setQuestions(String.valueOf(getProgression(step)));
-            setAnswers(String.valueOf(String.valueOf(missingElement)));
+            setAnswers(String.valueOf(missingElement));
             setRoundCounter();
         }
         doGameLogic();
