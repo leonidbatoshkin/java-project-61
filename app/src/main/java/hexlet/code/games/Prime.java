@@ -23,7 +23,7 @@ public class Prime {
 
     private static boolean isPrime(int number) {
         for (int i = 2; Math.pow(i, 2) <= number; i++) {
-            if ((number != 2 && number != 3) && (number % 2 == 0 || number % 3 == 0)) {
+            if ((number != 2 && number != 3) && (number % i == 0)) {
                 return false;
             }
         }
