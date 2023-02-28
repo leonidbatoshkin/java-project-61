@@ -1,33 +1,32 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
-import static hexlet.code.Cli.greeting;
 import static hexlet.code.Engine.generateNumber;
 import static hexlet.code.Engine.doGameLogic;
-import static hexlet.code.Engine.getRoundCounter;
-import static hexlet.code.Engine.setRoundCounter;
-import static hexlet.code.Engine.setQuestions;
-import static hexlet.code.Engine.setAnswers;
 import static hexlet.code.Engine.ROUNDS_NUMBER;
 
 public class Calc {
     public static void playGameCalc() {
-        greeting();
-        System.out.println("What is the result of the expression?");
-        while (getRoundCounter() < ROUNDS_NUMBER) {
+        Engine.greeting();
+        String[] answers = new String[ROUNDS_NUMBER];
+        String[] questions = new String[ROUNDS_NUMBER];
+        var description = "What is the result of the expression?";
+        var operation = generateOperation();
+        for (int i = 0; i < ROUNDS_NUMBER; i++) {
+            var question = generateNumber();
             var firstElement = generateNumber();
             var secondElement = generateNumber();
-            var operation = generateOperation();
             if (operation == '+') {
-                setAnswers(String.valueOf(firstElement + secondElement));
+                answers[i] = String.valueOf(firstElement + secondElement);
             } else {
-                setAnswers(String.valueOf(firstElement * secondElement));
+                answers[i] = String.valueOf(firstElement * secondElement);
             }
-            setQuestions(firstElement + " " + operation + " " + secondElement);
-            setRoundCounter();
+            questions[i] = firstElement + " " + operation + " " + secondElement;
         }
-        doGameLogic();
+        doGameLogic(questions, answers, description);
     }
 
     private static char generateOperation() {

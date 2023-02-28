@@ -1,20 +1,14 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+
 import java.util.Scanner;
 
-import static hexlet.code.Cli.greeting;
-import static hexlet.code.games.Calc.playGameCalc;
-import static hexlet.code.games.Even.playGameEven;
-import static hexlet.code.games.GCD.playGameGCD;
-import static hexlet.code.games.Progression.playGameProgression;
-import static hexlet.code.games.Prime.playGamePrime;
-
 public class App {
-    private static Scanner scanner;
-
-    public static Scanner getScanner() {
-        return scanner;
-    }
 
     public static void main(String[] args) {
         System.out.print("""
@@ -27,28 +21,28 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:\s""");
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String gameNumber = scanner.next();
         switch (gameNumber) {
             case "0":
                 break;
             case "1":
-                greeting();
+                Cli.greeting();
                 break;
             case "2":
-                playGameEven();
+                Even.playGameEven();
                 break;
             case "3":
-                playGameCalc();
+                Calc.playGameCalc();
                 break;
             case "4":
-                playGameGCD();
+                GCD.playGameGCD();
                 break;
             case "5":
-                playGameProgression();
+                Progression.playGameProgression();
                 break;
             case "6":
-                playGamePrime();
+                Prime.playGamePrime();
                 break;
             default:
                 System.out.println("\nThere are no game with that number.");

@@ -1,12 +1,9 @@
 package hexlet.code.games;
 
-import static hexlet.code.Cli.greeting;
+import hexlet.code.Engine;
+
 import static hexlet.code.Engine.generateNumber;
 import static hexlet.code.Engine.doGameLogic;
-import static hexlet.code.Engine.getRoundCounter;
-import static hexlet.code.Engine.setRoundCounter;
-import static hexlet.code.Engine.setQuestions;
-import static hexlet.code.Engine.setAnswers;
 import static hexlet.code.Engine.ROUNDS_NUMBER;
 
 public class Prime {
@@ -15,15 +12,16 @@ public class Prime {
     private static final int DIVIDER_THREE = 3;
 
     public static void playGamePrime() {
-        greeting();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        while (getRoundCounter() < ROUNDS_NUMBER) {
+        Engine.greeting();
+        String[] answers = new String[ROUNDS_NUMBER];
+        String[] questions = new String[ROUNDS_NUMBER];
+        var description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        for (int i = 0; i < ROUNDS_NUMBER; i++) {
             var number = generateNumber();
-            setAnswers(isPrime(number) ? "yes" : "no");
-            setQuestions(String.valueOf(number));
-            setRoundCounter();
+            answers[i] = isPrime(number) ? "yes" : "no";
+            questions[i] = String.valueOf(number);
         }
-        doGameLogic();
+        doGameLogic(questions, answers, description);
     }
 
     private static boolean isPrime(int number) {

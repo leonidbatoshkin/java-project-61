@@ -1,14 +1,11 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
-import static hexlet.code.Cli.greeting;
 import static hexlet.code.Engine.generateNumber;
 import static hexlet.code.Engine.doGameLogic;
-import static hexlet.code.Engine.getRoundCounter;
-import static hexlet.code.Engine.setRoundCounter;
-import static hexlet.code.Engine.setQuestions;
-import static hexlet.code.Engine.setAnswers;
 import static hexlet.code.Engine.ROUNDS_NUMBER;
 
 public class Progression {
@@ -21,15 +18,16 @@ public class Progression {
     private static int missingElement;
 
     public static void playGameProgression() {
-        greeting();
-        System.out.println("What number is missing in the progression?");
-        while (getRoundCounter() < ROUNDS_NUMBER) {
+        Engine.greeting();
+        String[] answers = new String[ROUNDS_NUMBER];
+        String[] questions = new String[ROUNDS_NUMBER];
+        var description = "What number is missing in the progression?";
+        for (int i = 0; i < ROUNDS_NUMBER; i++) {
             var step = generateNumber();
-            setQuestions(String.valueOf(getProgression(step)));
-            setAnswers(String.valueOf(missingElement));
-            setRoundCounter();
+            questions[i] = String.valueOf(getProgression(step));
+            answers[i] = String.valueOf(missingElement);
         }
-        doGameLogic();
+        doGameLogic(questions, answers, description);
     }
 
     private static String getProgression(int progressionStep) {
