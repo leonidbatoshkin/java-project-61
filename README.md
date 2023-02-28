@@ -9,15 +9,15 @@ The wrong answers complete the game and offer to go again.
 
 Games:
 
-1 - Calculator. Arithmetic expressions that need to be calculated.
-2 - Progression. Search for missing numbers in the sequence of numbers.
-3 - Determination of even number.
-4 - Determination of the greatest common divider.
-5 - Definition of a simple number.
+1 - Calculator. Arithmetic expressions that need to be calculated.  
+2 - Progression. Search for missing numbers in the sequence of numbers.  
+3 - Determination of even number.  
+4 - Determination of the greatest common divider.  
+5 - Definition of a simple number.  
 
 ## Run
 ```sh
-make run
+make run-dist
 ```
 
 ![image](https://user-images.githubusercontent.com/46719906/219486041-df4edf76-f329-4fe0-82ad-71f86f9d9e20.png)
