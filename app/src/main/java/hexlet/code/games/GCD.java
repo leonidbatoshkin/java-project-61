@@ -1,24 +1,22 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
-import static hexlet.code.Engine.generateNumber;
 import static hexlet.code.Engine.doGameLogic;
 import static hexlet.code.Engine.ROUNDS_NUMBER;
+import static hexlet.code.Utils.generateNumber;
 
 public class GCD {
+    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+
     public static void playGameGCD() {
-        Engine.greeting();
         String[] answers = new String[ROUNDS_NUMBER];
         String[] questions = new String[ROUNDS_NUMBER];
-        var description = "Find the greatest common divisor of given numbers.";
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
             var firstElement = generateNumber();
             var secondElement = generateNumber();
             answers[i] = String.valueOf(getGCDNumber(firstElement, secondElement));
             questions[i] = firstElement + " " + secondElement;
         }
-        doGameLogic(questions, answers, description);
+        doGameLogic(questions, answers, DESCRIPTION);
     }
 
     private static int getGCDNumber(int firstNumber, int secondNumber) {
