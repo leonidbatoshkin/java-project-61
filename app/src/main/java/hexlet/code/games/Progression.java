@@ -17,15 +17,13 @@ public class Progression {
     public static void playGameProgression() {
         String[][] gameData = new String[ROUNDS_NUMBER][GAME_DATA_COUNT];
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
-            for (int j = 0; j < GAME_DATA_COUNT; j++) {
-                var firstElement = generateNumber();
-                var step = generateNumber();
-                var progressionLength = generateNumber(PROGRESSION_BOTTOM_BORDER, PROGRESSION_UPPER_BORDER);
-                var missingElementPosition = generateNumber(MISSING_ELEMENT_BOTTOM_POSITION, progressionLength);
-                var progression = getProgression(firstElement, step, progressionLength);
-                gameData[i][QUESTION_INDEX] = getProgressionDescription(progression, missingElementPosition);
-                gameData[i][ANSWER_INDEX] = getMissingElement(progression, missingElementPosition);
-            }
+            var firstElement = generateNumber();
+            var step = generateNumber();
+            var progressionLength = generateNumber(PROGRESSION_BOTTOM_BORDER, PROGRESSION_UPPER_BORDER);
+            var missingElementPosition = generateNumber(MISSING_ELEMENT_BOTTOM_POSITION, progressionLength);
+            var progression = getProgression(firstElement, step, progressionLength);
+            gameData[i][QUESTION_INDEX] = getProgressionDescription(progression, missingElementPosition);
+            gameData[i][ANSWER_INDEX] = getMissingElement(progression, missingElementPosition);
         }
         doGameLogic(gameData, DESCRIPTION);
     }

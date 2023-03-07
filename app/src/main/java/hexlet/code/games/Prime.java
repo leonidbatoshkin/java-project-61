@@ -16,11 +16,9 @@ public class Prime {
     public static void playGamePrime() {
         String[][] gameData = new String[ROUNDS_NUMBER][GAME_DATA_COUNT];
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
-            for (int j = 0; j < GAME_DATA_COUNT; j++) {
-                var number = generateNumber();
-                gameData[i][QUESTION_INDEX] = String.valueOf(number);
-                gameData[i][ANSWER_INDEX] = isPrime(number) ? "yes" : "no";
-            }
+            var number = generateNumber();
+            gameData[i][QUESTION_INDEX] = String.valueOf(number);
+            gameData[i][ANSWER_INDEX] = isPrime(number) ? "yes" : "no";
         }
         doGameLogic(gameData, DESCRIPTION);
     }

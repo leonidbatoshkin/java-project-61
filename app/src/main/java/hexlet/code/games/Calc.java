@@ -16,13 +16,11 @@ public class Calc {
     public static void playGameCalc() {
         String[][] gameData = new String[ROUNDS_NUMBER][GAME_DATA_COUNT];
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
-            for (int j = 0; j < GAME_DATA_COUNT; j++) {
-                var firstElement = generateNumber();
-                var secondElement = generateNumber();
-                var operation = generateOperation();
-                gameData[i][QUESTION_INDEX] = firstElement + " " + operation + " " + secondElement;
-                gameData[i][ANSWER_INDEX] = calculate(firstElement, secondElement, operation);
-            }
+            var firstElement = generateNumber();
+            var secondElement = generateNumber();
+            var operation = generateOperation();
+            gameData[i][QUESTION_INDEX] = firstElement + " " + operation + " " + secondElement;
+            gameData[i][ANSWER_INDEX] = calculate(firstElement, secondElement, operation);
         }
         doGameLogic(gameData, DESCRIPTION);
     }
