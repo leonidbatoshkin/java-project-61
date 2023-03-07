@@ -2,21 +2,25 @@ package hexlet.code.games;
 
 import static hexlet.code.Engine.doGameLogic;
 import static hexlet.code.Engine.ROUNDS_NUMBER;
+import static hexlet.code.Engine.QUESTION_INDEX;
+import static hexlet.code.Engine.ANSWER_INDEX;
 import static hexlet.code.Utils.generateNumber;
 
 public class GCD {
+    private static final int GAME_DATA_COUNT = 2;
     private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
     public static void playGameGCD() {
-        String[] answers = new String[ROUNDS_NUMBER];
-        String[] questions = new String[ROUNDS_NUMBER];
+        String[][] gameData = new String[ROUNDS_NUMBER][GAME_DATA_COUNT];
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
-            var firstElement = generateNumber();
-            var secondElement = generateNumber();
-            answers[i] = String.valueOf(getGCDNumber(firstElement, secondElement));
-            questions[i] = firstElement + " " + secondElement;
+            for (int j = 0; j < GAME_DATA_COUNT; j++) {
+                var firstElement = generateNumber();
+                var secondElement = generateNumber();
+                gameData[i][QUESTION_INDEX] = firstElement + " " + secondElement;
+                gameData[i][ANSWER_INDEX] = String.valueOf(getGCDNumber(firstElement, secondElement));
+            }
         }
-        doGameLogic(questions, answers, DESCRIPTION);
+        doGameLogic(gameData, DESCRIPTION);
     }
 
     private static int getGCDNumber(int firstNumber, int secondNumber) {

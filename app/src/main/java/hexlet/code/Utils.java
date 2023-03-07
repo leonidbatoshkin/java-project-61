@@ -9,4 +9,8 @@ public class Utils {
     public static int generateNumber() {
         return new Random().nextInt(UPPER_BORDER - BOTTOM_BORDER) + BOTTOM_BORDER;
     }
+
+    public static int generateNumber(int bottomBorder, int upperBorder) {
+        return new Random().nextInt(upperBorder - bottomBorder) + bottomBorder;
+    }
 }
