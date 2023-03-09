@@ -20,7 +20,7 @@ public class Calc {
             var secondElement = generateNumber();
             var operation = generateOperation();
             gameData[i][QUESTION_INDEX] = firstElement + " " + operation + " " + secondElement;
-            gameData[i][ANSWER_INDEX] = calculate(firstElement, secondElement, operation);
+            gameData[i][ANSWER_INDEX] = String.valueOf(calculate(firstElement, secondElement, operation));
         }
         doGameLogic(gameData, DESCRIPTION);
     }
@@ -30,19 +30,20 @@ public class Calc {
         return OPERATION_LIST[index];
     }
 
-    private static String calculate(int firstElement, int secondElement, char operation) {
+    private static int calculate(int firstElement, int secondElement, char operation) {
         switch (operation) {
             case '+' -> {
-                return String.valueOf(firstElement + secondElement);
+                return firstElement + secondElement;
             }
             case '-' -> {
-                return String.valueOf(firstElement - secondElement);
+                return firstElement - secondElement;
             }
             case '*' -> {
-                return String.valueOf(firstElement * secondElement);
+                return firstElement * secondElement;
             }
             default -> {
-                return "No logic defined for \"" + operation + "\" operator";
+                System.out.println("No logic defined for \"" + operation + "\" operator");
+                return 0;
             }
         }
     }
